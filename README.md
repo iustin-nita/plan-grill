@@ -4,9 +4,9 @@
 
 Most weak plans don't fail on coding ability. They fail because nobody resolved the decisions that actually shape the implementation. `plan-grill` front-loads that: it explores your codebase, finds the forks that matter, and asks them as clean choices — not vague "what do you think?" prose.
 
-![A plan-grill question rendered as a structured AskUserQuestion screen: the question "What should be available offline?" with three labeled options, each showing a tradeoff, the first marked Recommended, plus an Other option](assets/example-question.svg)
+![plan-grill in action: a structured AskUserQuestion screen asking "How far should Biome go?" with four labeled options — Full replace (Recommended), Hybrid, Formatter-only, Other — each weighing concrete tradeoffs](assets/example-question.png)
 
-<sub>Illustrative example of a single plan-grill question screen.</sub>
+<sub>A real plan-grill question screen, mid-session — deciding how far a Biome migration should go.</sub>
 
 ## Install
 
