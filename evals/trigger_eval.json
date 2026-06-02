@@ -1,0 +1,23 @@
+[
+  {"query": "ok i wanna add a feature where users can save fountains into custom lists like 'my running route'. before you touch any code, ask me whatever you need to nail down the design", "should_trigger": true},
+  {"query": "help me plan offline mode for the map. feels like there are a bunch of decisions we need to make first", "should_trigger": true},
+  {"query": "grill me on my idea: a weekly email digest of new fountains added near the user", "should_trigger": true},
+  {"query": "i'm about to refactor the community voting system but i'm not sure about a few things — can you ask me some questions before we dive in?", "should_trigger": true},
+  {"query": "thinking about migrating favorites from asyncstorage to mmkv. plan it out but check the tradeoffs with me first", "should_trigger": true},
+  {"query": "before we implement dark mode, what are the key choices i should be making? give me options with pros and cons", "should_trigger": true},
+  {"query": "i have a rough idea for push notifications but it's half-baked. poke holes in it and help me figure out the right approach before i start coding", "should_trigger": true},
+  {"query": "design review pls — my plan for letting users submit photos of fountains. what could go wrong and what do i need to decide", "should_trigger": true},
+  {"query": "what do you need to know from me before building the toilet-finder filters?", "should_trigger": true},
+  {"query": "stress-test this plan before i build it: cache all WFS data on first launch so the app works fully offline underground", "should_trigger": true},
+
+  {"query": "just add a console.log in useFountainsData so i can see the raw WFS response coming back", "should_trigger": false},
+  {"query": "the ios build is failing with a 'duplicate symbol' error on the maplibre pod, help me fix it", "should_trigger": false},
+  {"query": "does haversineDistance in map/utils.ts return meters or kilometers? just need to know", "should_trigger": false},
+  {"query": "write me a plan for my product launch marketing campaign next month — channels, timeline, the whole thing", "should_trigger": false},
+  {"query": "rename the ToggleBar component to DatasetToggle everywhere it's used", "should_trigger": false},
+  {"query": "review my open PR and tell me if the clustering logic has any bugs", "should_trigger": false},
+  {"query": "help me grill my coworker with tough mock-interview questions for his system design interview tomorrow", "should_trigger": false},
+  {"query": "explain how the deep linking works in this app, i forgot how i wired up the berlinpublic:// scheme", "should_trigger": false},
+  {"query": "make a checklist of everything left before we can ship v1.2 to the play store", "should_trigger": false},
+  {"query": "i already decided everything — just implement the broken-fountain reporting exactly as we discussed: add a reason field, a third status, color the markers. go", "should_trigger": false}
+]

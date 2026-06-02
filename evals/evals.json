@@ -1,0 +1,29 @@
+{
+  "skill_name": "plan-grill",
+  "evals": [
+    {
+      "id": 1,
+      "name": "report-broken-fountain",
+      "prompt": "I want to let users report a fountain as broken or dry, and show that status to others. Help me plan it before we build.",
+      "expected_output": "Explores the codebase (community/Supabase, data flow) first, then asks structured AskUserQuestion screens covering the real forks (where status is stored, who can report, how it's surfaced, abuse/trust) — each with concrete options, tradeoffs, and a recommended answer. Ends with a concrete implementation plan reflecting the choices.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 2,
+      "name": "grill-existing-plan",
+      "prompt": "Here's my plan: add a 'Nearby toilets' push notification when the user is walking and within 100m of a public toilet. Grill me on it before I start.",
+      "expected_output": "Pressure-tests the stated plan via structured AskUserQuestion screens on the genuine unknowns (battery/geofencing approach, notification frequency/throttling, permissions, opt-in). Concrete options with tradeoffs and a recommendation each. Closes with a refined plan.",
+      "files": [],
+      "assertions": []
+    },
+    {
+      "id": 3,
+      "name": "ambiguous-perf",
+      "prompt": "The map feels slow when there are lots of markers. I want to make it fast. Plan the work.",
+      "expected_output": "Investigates the map rendering code first (markers, clustering, sources), then asks structured questions resolving the ambiguity in 'fast' (which slowness, target, approach: clustering vs virtualization vs fewer features) with tradeoffs and a recommended pick. Produces a plan grounded in the actual code.",
+      "files": [],
+      "assertions": []
+    }
+  ]
+}
