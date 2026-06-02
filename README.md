@@ -44,6 +44,34 @@ Planning, designing, or scoping a feature/change/migration with open decisions; 
 
 It deliberately stays out of the way when you've already decided and just want it built, for pure debugging or code explanation, for plain ship checklists, or for non-engineering planning.
 
+## Optional: reliable triggering via a hook
+
+Skill activation is the model's judgment call — a good description makes it *likely*, never *guaranteed*. On natural prompts like "let's plan the migration" the model sometimes just starts planning inline without consulting the skill.
+
+If you want plan-grill to fire **deterministically** on planning phrases, add a `UserPromptSubmit` hook to your `~/.claude/settings.json`. It pattern-matches your prompt and, on a hit, injects a reminder to use the skill (it stays silent otherwise — only fires on a match):
+
+```json
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "in=$(cat); printf \"%s\" \"$in\" | grep -qiE \"let.?s plan|let.?s make a plan|make a plan|plan how to|plan on how to|how to migrate|let.?s think about how to|let.?s think through|how should we approach|the best tool|which tool should|make a choice|plan the migration|migrate from .* to |grill me\" && printf \"%s\" \"{\\\"hookSpecificOutput\\\":{\\\"hookEventName\\\":\\\"UserPromptSubmit\\\",\\\"additionalContext\\\":\\\"The user prompt signals planning intent. Strongly consider using the plan-grill skill: surface the real decisions and ask them as structured AskUserQuestion screens with concrete options, honest tradeoffs, and a recommended pick, then synthesize a concrete plan.\\\"}}\"; true",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+Matches: `let's/lets plan`, `make a plan`, `plan how to` / `plan on how to`, `how to migrate`, `let's think about how to / think through`, `how should we approach`, `the best tool`, `which tool should`, `make a choice`, `plan the migration`, `migrate from … to …`, `grill me`. Tune the regex to taste.
+
+Merge it into your existing `hooks` object (don't replace the whole file). If it doesn't fire right after editing, open `/hooks` once or restart — Claude Code's config watcher may not hot-reload a mid-session edit. Manage or disable it later from the `/hooks` menu.
+
 ## Evaluation
 
 The skill was benchmarked against a no-skill baseline on 3 realistic planning prompts, graded on 5 objective assertions (structured options, recommended pick, per-option tradeoff, codebase grounding, concrete plan). See [`evals/`](evals/).
